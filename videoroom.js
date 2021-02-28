@@ -131,7 +131,7 @@ ws.onopen=async()=>{
                 "room" : 1234,
                 "display" : "Shivansh"},null,async(data)=>{
 
-                    const offer=await pc.createOffer({offerToReceiveAudio:false,offerToReceiveVideo:false})
+                    const offer=await pc.createOffer({offerToReceiveAudio:true,offerToReceiveVideo:true})
                     pc.setLocalDescription(offer)
                     ws.sendJanusMessage({
                         "request" : "publish"},{sdp:offer.sdp,type:offer.type},(data)=>{
